@@ -51,10 +51,15 @@ Place your own images in the `content-images/` and `style-images/` folders respe
 - Support for batch processing of multiple images
 - Add perceptual loss variants for style enhancement
 
-## License
-MIT License
+## Contributing
 
----
+If you'd like to contribute to Style My Pic, feel free to:
+
+- Fork the repository.
+- Create a new branch (git checkout -b feature-branch).
+- Commit your changes (git commit -am 'Add new feature').
+- Push to the branch (git push origin feature-branch).
+- Open a pull request.
 
 For academic or personal research use only. Feel free to modify and expand.
 
