@@ -16,7 +16,7 @@ def load_image(img_path,target_shape="None"):
     '''
     if not os.path.exists(img_path):
         raise Exception(f'Path not found: {img_path}')
-    img = cv.imread(img_path)[:, :, ::-1]                   # convert BGR to RGB when reading
+    img = cv.imread(img_path)[:, :, ::-1]                 
     if target_shape is not None:
         if isinstance(target_shape, int) and target_shape != -1:
             current_height, current_width = img.shape[:2]
@@ -45,7 +45,7 @@ def prepare_img(img_path, target_shape, device):
 def save_image(img, img_path):
     if len(img.shape) == 2:
         img = np.stack((img,) * 3, axis=-1)
-    cv.imwrite(img_path, img[:, :, ::-1])                   # convert RGB to BGR while writing
+    cv.imwrite(img_path, img[:, :, ::-1])                  
 
 def generate_out_img_name(config):
     '''
@@ -161,7 +161,7 @@ def neural_style_transfer(config):
     target_content_representation = content_img_set_of_feature_maps[content_feature_maps_index_name[0]].squeeze(axis=0)
     target_style_representation = [gram_matrix(x) for cnt, x in enumerate(style_img_set_of_feature_maps) if cnt in style_feature_maps_indices_names[0]]
     target_representations = [target_content_representation, target_style_representation]
-    num_of_iterations = 10
+    num_of_iterations = 2000
     
     optimizer = LBFGS((optimizing_img,), max_iter=num_of_iterations, line_search_fn='strong_wolfe')
     cnt = 0
